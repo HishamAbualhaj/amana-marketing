@@ -106,6 +106,7 @@ export interface Targeting {
 }
 
 export interface Campaign {
+  region: any;
   id: number;
   name: string;
   status: string;
@@ -167,4 +168,13 @@ export interface ApiResponse {
   error?: string;
   message?: string;
   data?: MarketingData;
+}
+
+export interface MockupData {
+  message: string;
+  company_info: CompanyInfo;
+  marketing_stats: MarketingStats;
+  campaigns: Campaign[];
+  market_insights: MarketInsights;
+  filters: Filters;
 }
