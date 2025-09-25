@@ -1,14 +1,8 @@
 import { Navbar } from "../../src/components/ui/navbar";
 import { Footer } from "../../src/components/ui/footer";
-import LineChart from "@/src/components/ui/line-chart";
 import mockup from "@/mockup.json";
-import HeatMap from "@/src/components/ui/heat-map";
-import {
-  Campaign,
-  MockupData,
-  RegionalPerformance,
-  WeeklyPerformance,
-} from "@/src/types/marketing";
+import { MockupData, WeeklyPerformance } from "@/src/types/marketing";
+import dynamic from "next/dynamic";
 export default function WeeklyView() {
   const aggregateWeeklyData = (data: MockupData, key: string) => {
     const aggregatedData: { [key: string]: number } = {};
@@ -34,6 +28,10 @@ export default function WeeklyView() {
   );
   const weeklySpendData = aggregateWeeklyData(mockup as MockupData, "spend");
 
+  // Import dynamically with SSR disabled
+  const LineChart = dynamic(() => import("@/src/components/ui/line-chart"), {
+    ssr: false,
+  });
   return (
     <div className="flex h-screen bg-gray-900">
       <Navbar />

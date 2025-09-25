@@ -3,6 +3,7 @@ import { Footer } from "../../src/components/ui/footer";
 import { Campaign, RegionalPerformance } from "@/src/types/marketing";
 import HeatMap from "@/src/components/ui/heat-map";
 import mockup from "@/mockup.json";
+import dynamic from "next/dynamic";
 
 export default function RegionView() {
   function aggregateRegionalData(campaigns: Campaign[]) {
@@ -38,6 +39,12 @@ export default function RegionView() {
 
     return Object.values(aggregation);
   }
+
+  // Import dynamically with SSR disabled
+  const HeatMap = dynamic(() => import("@/src/components/ui/heat-map"), {
+    ssr: false,
+  });
+
   return (
     <div className="flex h-screen bg-gray-900">
       <Navbar />
