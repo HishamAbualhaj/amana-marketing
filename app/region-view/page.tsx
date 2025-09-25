@@ -1,7 +1,7 @@
+"use client";
 import { Navbar } from "../../src/components/ui/navbar";
 import { Footer } from "../../src/components/ui/footer";
 import { Campaign, RegionalPerformance } from "@/src/types/marketing";
-import HeatMap from "@/src/components/ui/heat-map";
 import mockup from "@/mockup.json";
 import dynamic from "next/dynamic";
 

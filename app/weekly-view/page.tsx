@@ -1,3 +1,4 @@
+"use client";
 import { Navbar } from "../../src/components/ui/navbar";
 import { Footer } from "../../src/components/ui/footer";
 import mockup from "@/mockup.json";
